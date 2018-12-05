@@ -1,18 +1,13 @@
-CXX=g++
-CXXFLAGS=-Wall -Wextra --std=c++11 -g
-.PHONY: clean
+all: compile
 
-all: ims
-#OBJS=xxx.o
+.PHONY: all compile
 
-ims: main.o $(OBJS)
-	$(CXX) $(CXXFLAGS) $^ -o $@ -lsimlib -lm
+compile:
+	$(MAKE) -C src && mv ./src/ims ./ims
+
 clean:
-	-rm -f *.o ims *.tgz *.zip
+	$(MAKE) clean -C src
+	rm -f ims
+
 zip:
-	-zip xpetra19_xpitko00.zip *.cpp *.h Makefile
-
-
-#################################################
-
-main.o: main.cpp
+	zip -r 06_xpetra19_xpitko00.zip src Makefile

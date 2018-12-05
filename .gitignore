@@ -30,6 +30,8 @@
 *.exe
 *.out
 *.app
+src/ims
+ims
 
 # Archieves
 *.tgz
