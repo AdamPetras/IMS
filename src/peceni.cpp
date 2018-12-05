@@ -1,5 +1,7 @@
 #include "peceni.h"
 
+     int Vlhceni::Input = 0;
+
      Peceni::Peceni(double time)
      {
           this->_time = time;

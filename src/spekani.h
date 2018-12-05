@@ -7,7 +7,7 @@ class Spekani : public Process
 {
      private:
      public:
-          Facility F = Facility("Spekanie");
+          Facility F;
           Spekani(/* args */);
           ~Spekani();
           void Behavior();

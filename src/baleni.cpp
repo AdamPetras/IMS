@@ -1,5 +1,7 @@
 #include "baleni.h"
 
+int Baleni::Input = 0;
+
 Baleni::Baleni(/* args */)
 {
 }

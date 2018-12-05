@@ -8,7 +8,7 @@ class Sypani : public Process
      private:
           /* data */
      public:
-     Facility F = Facility("Sypanie");
+     Facility F;
      Sypani(/* args */);
      ~Sypani();
      void Behavior();
