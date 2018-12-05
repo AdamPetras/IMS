@@ -2,7 +2,7 @@
 
 int Vazeni::InputSpekani = 0;
 int Vazeni::InputOrezavani = 0;
-Facility Vazeni::F;
+Facility Vazeni::F("Vazeni");
 
 Vazeni::Vazeni(/* args */)
 {
@@ -20,8 +20,8 @@ void Vazeni::Behavior()
           Release(F);
           return;
      }
-     if (Vazeni::InputSpekani < 8 || Vazeni::InputOrezavani < 8){
-          std::cerr << "nedostatocny vstup vstup - vazeni" << std::endl;
+     if (Vazeni::InputSpekani < 8 && Vazeni::InputOrezavani < 8){
+          std::cerr << "nedostatocny vstup - vazeni speknie: " << Vazeni::InputSpekani << " orezavanie: " << Vazeni::InputOrezavani << std::endl;
           Release(F);
           return;
      }
@@ -47,7 +47,6 @@ void Vazeni::Behavior()
                Vazeni::InputOrezavani -= 8;
      }
      Wait(Utils::normalMinMax(5, 17));
-     Release(F);
 
      d = Uniform(0, 99);
      if (d < 0.3)
@@ -59,7 +58,9 @@ void Vazeni::Behavior()
      }
      else
      {
+          std::cout << "Balicek zvazeny" << std::endl;
           Baleni::Input += 1;
           (new Baleni)->Activate();
      }
+     Release(F);
 }

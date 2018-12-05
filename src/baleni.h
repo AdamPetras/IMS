@@ -9,7 +9,7 @@ class Baleni : public Process
           /* data */
      public:
           static int Input;
-          Facility F;
+          static Facility F;
           Baleni(/* args */);
           ~Baleni();
           void Behavior();

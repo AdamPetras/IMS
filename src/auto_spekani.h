@@ -1,11 +1,18 @@
 #pragma once
 #include <simlib.h>
+#include "vazeni.h"
+#include "utils.h"
+#include "vazeni.h"
+#include "vlhceni.h"
 
-class AutoSpekani
+class AutoSpekani : public Process
 {
-     private:
-          /* data */
-     public:
-          AutoSpekani(/* args */);
-          ~AutoSpekani();
+   private:
+     double d;
+
+   public:
+     static Facility F;
+     AutoSpekani(/* args */);
+     ~AutoSpekani();
+     void Behavior();
 };

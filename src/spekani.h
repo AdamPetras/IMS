@@ -7,7 +7,8 @@ class Spekani : public Process
 {
      private:
      public:
-          Facility F;
+          static Facility F;
+          static int Input;
           Spekani(/* args */);
           ~Spekani();
           void Behavior();

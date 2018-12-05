@@ -1,6 +1,7 @@
 #include "baleni.h"
 
 int Baleni::Input = 0;
+Facility Baleni::F("Baleni");
 
 Baleni::Baleni(/* args */)
 {
@@ -19,6 +20,6 @@ void Baleni::Behavior(){
      }
      Wait(Utils::normalMinMax(7, 13));
      Input--;
-
+     std::cout << "balicek zabaleny" << std::endl;
      Release(F);
 }
