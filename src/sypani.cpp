@@ -20,7 +20,8 @@ void Sypani::Behavior(){
      Vlhceni::Output -= 2;
      Wait(Utils::normalMinMax(4, 15));
      Spekani::Input++;
-     std::cout << "Sypani hotovo" << std::endl;
+     std::cout << ">>>>>> Sypani hotovo" << std::endl;
+     (new Sypani())->Activate();
      Release(F);
      (new Spekani())->Activate();
 }

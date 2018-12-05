@@ -14,7 +14,7 @@ Baleni::~Baleni()
 void Baleni::Behavior(){
      Seize(F);
      if(Input == 0){
-          std::cerr << "ziadny vstup - baleni" << std::endl;
+          std::cerr << "ziadny vstup baleni" << std::endl;
           Release(F);
           return;
      }

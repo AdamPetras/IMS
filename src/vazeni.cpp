@@ -16,16 +16,16 @@ void Vazeni::Behavior()
 {
      Seize(F);
      if (Vazeni::InputSpekani == 0 && Vazeni::InputOrezavani == 0){
-          std::cerr << "ziadny vstup - vazeni" << std::endl;
+          std::cerr << "ziadny vstup vazeni" << std::endl;
           Release(F);
           return;
      }
      if (Vazeni::InputSpekani < 8 && Vazeni::InputOrezavani < 8){
-          std::cerr << "nedostatocny vstup - vazeni speknie: " << Vazeni::InputSpekani << " orezavanie: " << Vazeni::InputOrezavani << std::endl;
+          std::cerr << "nedostatocny vstup vazeni speknie: " << Vazeni::InputSpekani << " orezavanie: " << Vazeni::InputOrezavani << std::endl;
           Release(F);
           return;
      }
-     if (Vazeni::InputSpekani > 8 && Vazeni::InputOrezavani > 8)
+     if (Vazeni::InputSpekani >= 8 && Vazeni::InputOrezavani >= 8)
      {
           d = Uniform(0, 99);
           if (d < 50.0)
@@ -38,7 +38,7 @@ void Vazeni::Behavior()
      }
      else
      {
-          if (Vazeni::InputSpekani > 0)
+          if (Vazeni::InputSpekani >= 8)
           {
                Fspekani = true;
                Vazeni::InputSpekani -= 8;

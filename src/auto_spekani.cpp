@@ -26,9 +26,9 @@ void AutoSpekani::Behavior()
      d = Uniform(0, 100);
      if (d < 0.00372){
           // treba opravit stroj
-          Activate(Time + Utils::normalMinMax(5*60, 60*60));
+          (new AutoSpekani)->Activate(Time + Utils::normalMinMax(5*60, 60*60));
      }else
-          Activate();
+          (new AutoSpekani)->Activate();
      std::cout << "Autospekani hotovo" << std::endl;
      Release(F);
 
