@@ -4,9 +4,6 @@
 #include <simlib.h>
 #include "peceni.h"
 
-Facility Box("Box");
-Histogram Table("Table",0,25,20);
-
 int main(int argc,char**argv)
 {
      int links = 0;
@@ -47,8 +44,5 @@ int main(int argc,char**argv)
      Init(0,1000); // experiment initialization for time 0..1000 
      (new Peceni())->Activate(); // customer generator 
      Run(); // simulation 
-     Box.Output(); // print of results 
-     Table.Output();
-     
      return EXIT_SUCCESS;
 }
