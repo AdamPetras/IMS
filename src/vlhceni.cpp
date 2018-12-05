@@ -4,7 +4,7 @@ Facility Vlhceni::Mala("Malá vlhčírna");
 Facility Vlhceni::Velka("Velká vlhčírna");
 int Vlhceni::aktualni_mala = 0;
 int Vlhceni::aktualni_velka = 0;
-Store Vlhceni::Output;
+int Vlhceni::Output = 0;
 Vlhceni::Vlhceni(/* args */)
 {
 }
@@ -24,7 +24,7 @@ void Vlhceni::Behavior()
           {
                Seize(Velka);
                Wait(Utils::normalMinMax(2*24*60*60,7*24*60*60));
-               Leave(Output,VELKA_KAPACITA);
+               Output+=VELKA_KAPACITA;
                Release(Velka);
                aktualni_velka = 0;
                (new AutoSpekani)->Activate();
@@ -41,7 +41,7 @@ void Vlhceni::Behavior()
           {
                Seize(Mala);
                Wait(Utils::normalMinMax(2*24*60*60,7*24*60*60));
-               Leave(Output,MALA_KAPACITA);
+               Output+=MALA_KAPACITA;
                Release(Mala);
                aktualni_mala = 0;
                (new AutoSpekani)->Activate();

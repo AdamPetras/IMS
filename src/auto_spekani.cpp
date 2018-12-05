@@ -14,12 +14,12 @@ AutoSpekani::~AutoSpekani()
 void AutoSpekani::Behavior()
 {
      Seize(F);
-     if (Vlhceni::Output.Capacity() < 2){
+     if (Vlhceni::Output < 2){
           Release(F);
           std::cerr << "Nedostatocna kapacita pre auto_spekani" << std::endl;
           return;
      }
-     Enter(Vlhceni::Output, 2);
+     Vlhceni::Output -= 2;
      Wait(45);
      Vazeni::InputSpekani++;
 

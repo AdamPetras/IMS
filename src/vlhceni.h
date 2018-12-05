@@ -14,7 +14,7 @@ private:
      const int VELKA_KAPACITA = 40800;
 public:
      static int Input;
-     static Store Output;
+     static int Output;
      Vlhceni(/* args */);
      ~Vlhceni();
      void Behavior();

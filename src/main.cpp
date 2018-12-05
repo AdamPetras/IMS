@@ -41,7 +41,7 @@ int main(int argc,char**argv)
     //std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
      Print("Výroba lázeňských oplatků\n");
      SetOutput("model.out"); 
-     Init(0,1000); // experiment initialization for time 0..1000 
+     Init(0,100000000); // experiment initialization for time 0..1000 
      (new Peceni())->Activate(); // customer generator 
      Run(); // simulation 
      return EXIT_SUCCESS;
