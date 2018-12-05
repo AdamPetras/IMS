@@ -24,11 +24,13 @@ void Vlhceni::Behavior()
           {
                Seize(Velka);
                Wait(Utils::normalMinMax(2*24*60*60,7*24*60*60));
-               Leave(Output,40800);
+               Leave(Output,VELKA_KAPACITA);
                Release(Velka);
+               aktualni_velka = 0;
+               (new AutoSpekani)->Activate();
+               (new Sypani)->Activate();
           }
-          (new AutoSpekani)->Activate();
-          (new Sypani)->Activate();
+          
      }
      else if(!Mala.Busy())
      {
@@ -39,11 +41,13 @@ void Vlhceni::Behavior()
           {
                Seize(Mala);
                Wait(Utils::normalMinMax(2*24*60*60,7*24*60*60));
-               Leave(Output,26900);
+               Leave(Output,MALA_KAPACITA);
                Release(Mala);
+               aktualni_mala = 0;
+               (new AutoSpekani)->Activate();
+               (new Sypani)->Activate();
           }
-          (new AutoSpekani)->Activate();
-          (new Sypani)->Activate();
+          
      }
      else
      {
