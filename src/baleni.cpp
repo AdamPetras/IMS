@@ -1,9 +1,22 @@
 #include "baleni.h"
 
-     Baleni::Baleni(/* args */)
-     {
-     }
+Baleni::Baleni(/* args */)
+{
+}
 
-     Baleni::~Baleni()
-     {
+Baleni::~Baleni()
+{
+}
+
+void Baleni::Behavior(){
+     Seize(F);
+     if(Input == 0){
+          std::cerr << "ziadny vstup - baleni" << std::endl;
+          Release(F);
+          return;
      }
+     Wait(Utils::normalMinMax(7, 13));
+     Input--;
+
+     Release(F);
+}

@@ -1,9 +1,17 @@
 #include "spekani.h"
 
-     Spekani::Spekani(/* args */)
-     {
-     }
+Spekani::Spekani(/* args */)
+{
+}
 
-     Spekani::~Spekani()
-     {
-     }
+Spekani::~Spekani()
+{
+}
+
+void Spekani::Behavior(){
+     Seize(F);
+     Wait(45);
+     Release(F);
+     Vazeni V = Vazeni();
+     (new Vazeni())->Activate();
+}

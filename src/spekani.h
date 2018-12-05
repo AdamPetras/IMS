@@ -1,11 +1,14 @@
 #pragma once
 #include <simlib.h>
+#include "utils.h"
+#include "vazeni.h"
 
-class Spekani
+class Spekani : public Process
 {
      private:
-          /* data */
      public:
+          Facility F = Facility("Spekanie");
           Spekani(/* args */);
           ~Spekani();
+          void Behavior();
 };
