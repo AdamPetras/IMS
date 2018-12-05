@@ -10,6 +10,9 @@ class Mazani:public Process
           static Facility first;
           static Facility second;
      public:
+          static Stat Fstat1;
+          static Stat Fstat2;
+          static int Sumtime;
           static int Input;
           Mazani(/* args */);
           ~Mazani();

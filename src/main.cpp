@@ -3,6 +3,7 @@
 #include <string>
 #include <simlib.h>
 #include "peceni.h"
+#include "orezavani.h"
 
 int main(int argc,char**argv)
 {
@@ -42,9 +43,19 @@ int main(int argc,char**argv)
      }*/
     //std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
      Print("Výroba lázeňských oplatků\n");
-     SetOutput("model.out"); 
-     Init(0,604800); // experiment initialization for time 0..1000 
+     SetOutput("model.out");
+     const int ENDTIME = 6048000;
+     Init(0,ENDTIME); // experiment initialization for time 0..1000 
      (new Peceni())->Activate(); // customer generator 
      Run(); // simulation 
+     Orezavani::Fstat.Output();
+     Mazani::Fstat1.Output();
+     Mazani::Fstat2.Output();
+     Vlhceni::FstatMala.Output();
+     Vlhceni::FstatVelka.Output();
+     std::cout<<"Orezavani: "<<Orezavani::Sumtime/Time*100<<"\%"<<std::endl;
+     std::cout<<"Mazání: "<<Mazani::Sumtime/Time*100<<"\%"<<std::endl;
+     std::cout<<"Malá vlhčírna: "<<Vlhceni::SumtimeMala/Time*100<<"\%"<<std::endl;
+     std::cout<<"Velká vlhčírna: "<<Vlhceni::SumtimeVelka/Time*100<<"\%"<<std::endl;
      return EXIT_SUCCESS;
 }

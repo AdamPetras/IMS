@@ -12,6 +12,10 @@ private:
      const int VELKA_KAPACITA = 40800;
 public:
      static int Input;
+     static int SumtimeMala;
+     static int SumtimeVelka;
+     static Stat FstatMala;
+     static Stat FstatVelka;
      static int Output;
      Vlhceni(/* args */);
      ~Vlhceni();
