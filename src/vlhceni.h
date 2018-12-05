@@ -1,6 +1,5 @@
 #pragma once
 #include <simlib.h>
-#include "utils.h"
 #include "auto_spekani.h"
 #include "sypani.h"
 class Vlhceni:public Process

@@ -1,15 +1,14 @@
 #pragma once
 #include <simlib.h>
-#include "utils.h"
 #include "spekani.h"
 #include "vlhceni.h"
 
 class Sypani : public Process
 {
-     private:
-          /* data */
      public:
      static Facility F;
+     static Stat Fstat;
+     static double Sumtime;
      Sypani(/* args */);
      ~Sypani();
      void Behavior();

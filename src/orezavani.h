@@ -2,7 +2,6 @@
 #include <simlib.h>
 #include <iostream>
 #include "vazeni.h"
-#include "utils.h"
 
 class Orezavani:public Process
 {

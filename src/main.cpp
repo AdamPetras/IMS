@@ -4,6 +4,8 @@
 #include <simlib.h>
 #include "peceni.h"
 #include "orezavani.h"
+#include "sypani.h"
+#include "auto_spekani.h"
 
 int main(int argc,char**argv)
 {
@@ -48,14 +50,25 @@ int main(int argc,char**argv)
      Init(0,ENDTIME); // experiment initialization for time 0..1000 
      (new Peceni())->Activate(); // customer generator 
      Run(); // simulation 
+
+     Sypani::Fstat.Output();
+     AutoSpekani::Fstat.Output();
      Orezavani::Fstat.Output();
      Mazani::Fstat1.Output();
      Mazani::Fstat2.Output();
      Vlhceni::FstatMala.Output();
      Vlhceni::FstatVelka.Output();
-     std::cout<<"Orezavani: "<<Orezavani::Sumtime/Time*100<<"\%"<<std::endl;
-     std::cout<<"Mazání: "<<Mazani::Sumtime/Time*100<<"\%"<<std::endl;
-     std::cout<<"Malá vlhčírna: "<<Vlhceni::SumtimeMala/Time*100<<"\%"<<std::endl;
-     std::cout<<"Velká vlhčírna: "<<Vlhceni::SumtimeVelka/Time*100<<"\%"<<std::endl;
+     Baleni::Fstat.Output();
+     Vazeni::Fstat.Output();
+     Spekani::Fstat.Output();
+     std::cout << "Sypani:\t\t" << Sypani::Sumtime/Time*100<<"\%"<< std::endl;
+     std::cout << "Spekani:\t" << Spekani::Sumtime/Time*100<<"\%"<< std::endl;
+     std::cout << "AutoSpekani:\t" << AutoSpekani::Sumtime/Time*100<<"\%"<< std::endl;
+     std::cout<<"Orezavani:\t"<<Orezavani::Sumtime/Time*100<<"\%"<<std::endl;
+     std::cout<<"Mazání:\t\t"<<Mazani::Sumtime/Time*100<<"\%"<<std::endl;
+     std::cout<<"Malá vlhčírna:\t"<<Vlhceni::SumtimeMala/Time*100<<"\%"<<std::endl;
+     std::cout<<"Velká vlhčírna:\t"<<Vlhceni::SumtimeVelka/Time*100<<"\%"<<std::endl;
+     std::cout<<"Baleni:\t\t"<<Baleni::Sumtime/Time*100<<"\%"<<std::endl;
+     std::cout<<"Vazeni:\t\t"<<Vazeni::Sumtime/Time*100<<"\%"<<std::endl;
      return EXIT_SUCCESS;
 }

@@ -1,7 +1,6 @@
 #pragma once
 #include <simlib.h>
 #include <iostream>
-#include "utils.h"
 #include "baleni.h"
 
 class Vazeni : public Process
@@ -14,6 +13,8 @@ class Vazeni : public Process
      static Facility F;
      static int InputSpekani;
      static int InputOrezavani;
+     static Stat Fstat;
+     static double Sumtime;
      Vazeni(/* args */);
      ~Vazeni();
      void Behavior();

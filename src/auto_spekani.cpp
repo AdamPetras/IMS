@@ -1,6 +1,8 @@
 #include "auto_spekani.h"
 
 Facility AutoSpekani::F("Auto_spekani");
+Stat AutoSpekani::Fstat("Auto_spekani");
+double AutoSpekani::Sumtime = 0;
 
 AutoSpekani::AutoSpekani(/* args */)
 {
@@ -19,6 +21,7 @@ void AutoSpekani::Behavior()
           std::cerr << "Nedostatocna kapacita pre auto_spekani" << std::endl;
           return;
      }
+     double t = Time;
      Vlhceni::Output -= 2;
      Wait(45);
      Vazeni::InputSpekani++;
@@ -26,10 +29,14 @@ void AutoSpekani::Behavior()
      d = Uniform(0, 100);
      if (d < 0.00372){
           // treba opravit stroj
-          (new AutoSpekani)->Activate(Time + Utils::normalMinMax(5*60, 60*60));
+          std::cout << "Stroj pokazeny" << std::endl;
+          (new AutoSpekani)->Activate(Time + Uniform(5*60, 60*60));
      }else
           (new AutoSpekani)->Activate();
      std::cout << "Autospekani hotovo" << std::endl;
+     t = Time - t;
+     Fstat(t);
+     Sumtime += t;
      Release(F);
 
 }
