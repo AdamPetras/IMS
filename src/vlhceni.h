@@ -9,8 +9,6 @@ private:
      static Facility Velka;
      static Facility Mala;
      const int MALA_KAPACITA = 26900;
-     static int aktualni_mala;
-     static int aktualni_velka;
      const int VELKA_KAPACITA = 40800;
 public:
      static int Input;

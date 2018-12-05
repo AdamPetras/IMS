@@ -6,7 +6,9 @@
 
 int main(int argc,char**argv)
 {
-     int links = 0;
+    (void)argc;
+    (void)argv;
+     /*int links = 0;
      int process = 0;
      float generateTime = 0;
      int opt;
@@ -37,11 +39,11 @@ int main(int argc,char**argv)
                     \n\t-i : počet procesů\
                     \n\t-t : čas, kdy se budou vytvářet jednotlivé procesy"<<std::endl;
                return EXIT_SUCCESS;
-     }
+     }*/
     //std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
      Print("Výroba lázeňských oplatků\n");
      SetOutput("model.out"); 
-     Init(0,10000000); // experiment initialization for time 0..1000 
+     Init(0,604800); // experiment initialization for time 0..1000 
      (new Peceni())->Activate(); // customer generator 
      Run(); // simulation 
      return EXIT_SUCCESS;
