@@ -1,6 +1,7 @@
 #include "orezavani.h"
 
      int Orezavani::Input = 0;
+     Facility Orezavani::orezavani("Orezavani");
      Orezavani::Orezavani(/* args */)
      {
      }
@@ -23,4 +24,5 @@
           Release(orezavani);
           tmp->InputOrezavani++;
           tmp->Activate();
+          std::cout<<"Oplatek orezany"<<std::endl;
      }

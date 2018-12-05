@@ -1,5 +1,7 @@
 #include "vlhceni.h"
 
+Facility Vlhceni::Mala;
+Facility Vlhceni::Velka;
 Vlhceni::Vlhceni(/* args */)
 {
      

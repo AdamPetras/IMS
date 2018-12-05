@@ -7,8 +7,8 @@
 class Mazani:public Process
 {
      private:
-          Facility first;
-          Facility second;
+          static Facility first;
+          static Facility second;
      public:
           static int Input;
           Mazani(/* args */);

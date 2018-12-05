@@ -4,8 +4,8 @@
 class Vlhceni:public Process
 {
 private:
-     Facility Velka;
-     Facility Mala;
+     static Facility Velka;
+     static Facility Mala;
 public:
      static int Input;
      Vlhceni(/* args */);

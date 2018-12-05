@@ -2,9 +2,9 @@
 
      int Vlhceni::Input = 0;
 
-     Peceni::Peceni(double time)
+     Peceni::Peceni()
      {
-          this->_time = time;
+          
      }
 
      Peceni::~Peceni()
@@ -18,16 +18,15 @@
           if(d<50)
           {
                Vlhceni *tmp = new Vlhceni;
+               tmp->Input++;
                tmp->Activate();
                Activate(Time+Exponential(45));
-               tmp->Input++;
           }
           else if(d>=50)
           {
                Mazani *tmp = new Mazani();
+               Mazani::Input++;
                tmp->Activate();
                Activate(Time+Exponential(45));
-               tmp->Input++;
           }
-          Activate(this->_time);
      }

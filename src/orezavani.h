@@ -7,7 +7,7 @@
 class Orezavani:public Process
 {
      private:
-          Facility orezavani;
+          static Facility orezavani;
      public:
           static int Input;
           void Behavior();

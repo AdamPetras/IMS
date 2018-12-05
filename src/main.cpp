@@ -2,31 +2,10 @@
 #include <getopt.h>
 #include <string>
 #include <simlib.h>
+#include "peceni.h"
 
 Facility Box("Box");
 Histogram Table("Table",0,25,20);
-
-class Customer : public Process 
-{ 
-     double Prichod; // atribute of each customer 
-     void Behavior() 
-     {
-          Prichod = Time;
-          Seize(Box);
-          Wait(10);
-          Release(Box);
-          Table(Time-Prichod);
-     } 
-};
-
-class Generator : public Event 
-{
-     void Behavior() 
-     { 
-          (new Customer)->Activate();
-          Activate(Time+Exponential(1e3/150));
-     }     
-};
 
 int main(int argc,char**argv)
 {
@@ -62,11 +41,11 @@ int main(int argc,char**argv)
                     \n\t-t : čas, kdy se budou vytvářet jednotlivé procesy"<<std::endl;
                return EXIT_SUCCESS;
      }
-     std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
+    //std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
      Print("Výroba lázeňských oplatků\n");
      SetOutput("model.out"); 
      Init(0,1000); // experiment initialization for time 0..1000 
-     (new Generator)->Activate(); // customer generator 
+     (new Peceni())->Activate(); // customer generator 
      Run(); // simulation 
      Box.Output(); // print of results 
      Table.Output();

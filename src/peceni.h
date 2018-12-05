@@ -2,12 +2,12 @@
 #include <simlib.h>
 #include "vlhceni.h"
 #include "mazani.h"
+#include <iostream>
 class Peceni : public Event
 {
      private:
-           double _time;
      public:
-          Peceni(double);
+          Peceni();
           ~Peceni();
           void Behavior();
 };

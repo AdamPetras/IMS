@@ -1,8 +1,10 @@
 #include "mazani.h"
 int Mazani::Input = 0;
+Facility Mazani::first("Prvni mazač");
+Facility Mazani::second("Druhy mazač");
 Mazani::Mazani(/* args */)
 {
-     Input = 0;
+
 }
 
 Mazani::~Mazani()
@@ -40,6 +42,7 @@ void Mazani::Behavior()
           Input-=2;
           Release(second);
      }
+     std::cout<<"Oplatek namazaný"<<std::endl;
      tmp->Input++;
      tmp->Activate();
 }
