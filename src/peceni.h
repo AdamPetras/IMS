@@ -1,11 +1,13 @@
 #pragma once
 #include <simlib.h>
-
-class Peceni
+#include "vlhceni.h"
+#include "mazani.h"
+class Peceni : public Event
 {
      private:
-          /* data */
+           double _time;
      public:
-          Peceni(/* args */);
+          Peceni(double);
           ~Peceni();
+          void Behavior();
 };

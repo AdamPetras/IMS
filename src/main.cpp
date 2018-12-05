@@ -63,8 +63,8 @@ int main(int argc,char**argv)
                return EXIT_SUCCESS;
      }
      std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
-     Print(" model2 - SIMLIB/C++ example\n");
-     SetOutput("model2.out"); 
+     Print("Výroba lázeňských oplatků\n");
+     SetOutput("model.out"); 
      Init(0,1000); // experiment initialization for time 0..1000 
      (new Generator)->Activate(); // customer generator 
      Run(); // simulation 
