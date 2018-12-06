@@ -30,10 +30,12 @@ void Vlhceni::Behavior()
                Seize(Velka);
                t = Time;
                Vlhceni::Input-=VELKA_KAPACITA;
-               Wait(Uniform(2*24*60*60,5*24*60*60));
+               Wait(Uniform(1*24*60*60,2*24*60*60));
                Vlhceni::Output+=VELKA_KAPACITA;
-               (new AutoSpekani)->Activate();
-               (new Sypani)->Activate();
+               if(!AutoSpekani::IsRunning)
+                    (new AutoSpekani)->Activate();
+               if(!Sypani::IsRunning)
+                    (new Sypani)->Activate();
                t = Time-t;
                FstatVelka(t);
                SumtimeVelka += t;
@@ -51,9 +53,11 @@ void Vlhceni::Behavior()
                     Seize(Mala);
                     t = Time;
                     Vlhceni::Input-=MALA_KAPACITA;
-                    Wait(Uniform(2*24*60*60,5*24*60*60));
+                    Wait(Uniform(1*24*60*60,2*24*60*60));
                     Vlhceni::Output+=MALA_KAPACITA;
+                         if(!AutoSpekani::IsRunning)
                     (new AutoSpekani)->Activate();
+                         if(!Sypani::IsRunning)
                     (new Sypani)->Activate();
                     t = Time-t;
                     FstatMala(t);
