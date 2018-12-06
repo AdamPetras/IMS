@@ -17,6 +17,7 @@ AutoSpekani::~AutoSpekani()
 
 void AutoSpekani::Behavior()
 {
+     const int PLOTYNKY = 14;
      Seize(F);
      IsRunning = true;
      if (Vlhceni::Output < 2){
@@ -27,7 +28,7 @@ void AutoSpekani::Behavior()
      double t = Time;
      Vlhceni::Output -= 2;
      Fhist(Time);
-     Wait(45);
+     Wait(45/PLOTYNKY);
      Vazeni::InputSpekani++;
 
      d = Uniform(0, 100);
