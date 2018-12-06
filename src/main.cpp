@@ -71,5 +71,7 @@ int main(int argc,char**argv)
      std::cout<<"Baleni:\t\t"<<Baleni::Sumtime/Time*100<<"\%"<<std::endl;
      std::cout<<"Vazeni:\t\t"<<Vazeni::Sumtime/Time*100<<"\%"<<std::endl;
      std::cout<<"ostatok syp:\t\t"<<Vlhceni::Output<<std::endl;
+     std::cout<<Sypani::Sumtime/(Time-Vlhceni::SavedTime)*100<<std::endl;
+     std::cout<<AutoSpekani::Sumtime/(Time-Vlhceni::SavedTime)*100<<std::endl;
      return EXIT_SUCCESS;
 }

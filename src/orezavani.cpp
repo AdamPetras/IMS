@@ -19,7 +19,6 @@
           if(Input == 0)
           {
                Release(orezavani);
-               std::cerr<<"Orezávání potřebuje oplatky"<<std::endl;
                return;
           }
           Wait(Uniform(5,9));
@@ -30,5 +29,4 @@
           Release(orezavani);
           tmp->InputOrezavani++;
           tmp->Activate();
-          std::cout<<"Oplatek orezany"<<std::endl;
      }

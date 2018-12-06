@@ -13,18 +13,18 @@
      void Peceni::Behavior()
      {
           double d = Uniform(0,99);
-          if(d<75)
+          if(d<70)
           {
                Vlhceni *tmp = new Vlhceni;
                Vlhceni::Input++;
                tmp->Activate();
-               Activate(Time+2);
+               Activate(Time+3);
           }
-          else if(d>=75)
+          else if(d>=70)
           {
                Mazani *tmp = new Mazani();
                Mazani::Input++;
                tmp->Activate();
-               Activate(Time+2);
+               Activate(Time+3);
           }
      }

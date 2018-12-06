@@ -20,7 +20,6 @@ void AutoSpekani::Behavior()
      IsRunning = true;
      if (Vlhceni::Output < 2){
           Release(F);
-          std::cerr << "Nedostatocna kapacita pre auto_spekani" << std::endl;
           IsRunning = false;
           return;
      }
@@ -32,11 +31,9 @@ void AutoSpekani::Behavior()
      d = Uniform(0, 100);
      if (d < 0.00372){
           // treba opravit stroj
-          std::cout << "Stroj pokazeny" << std::endl;
           (new AutoSpekani)->Activate(Time + Uniform(5*60, 60*60));
      }else
           (new AutoSpekani)->Activate();
-     std::cout << "Autospekani hotovo" << std::endl;
      t = Time - t;
      Fstat(t);
      Sumtime += t;

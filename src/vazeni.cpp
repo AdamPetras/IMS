@@ -19,13 +19,11 @@ void Vazeni::Behavior()
      Seize(F);
      if (Vazeni::InputSpekani == 0 && Vazeni::InputOrezavani == 0)
      {
-          std::cerr << "ziadny vstup vazeni" << std::endl;
           Release(F);
           return;
      }
      if (Vazeni::InputSpekani < 8 && Vazeni::InputOrezavani < 8)
      {
-          std::cerr << "nedostatocny vstup vazeni speknie: " << Vazeni::InputSpekani << " orezavanie: " << Vazeni::InputOrezavani << std::endl;
           Release(F);
           return;
      }
@@ -63,7 +61,6 @@ void Vazeni::Behavior()
      }
      else
      {
-          std::cout << "Balicek zvazeny" << std::endl;
           Baleni::Input += 1;
           (new Baleni)->Activate();
      }

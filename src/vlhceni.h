@@ -8,8 +8,10 @@ private:
      static Facility Velka;
      static Facility Mala;
      const int MALA_KAPACITA = 26900;
-     const int VELKA_KAPACITA = 40800;
+     const int VELKA_KAPACITA = 26900;
+     static bool IsTimeSaved;
 public:
+     static int SavedTime;
      static int Input;
      static int SumtimeMala;
      static int SumtimeVelka;

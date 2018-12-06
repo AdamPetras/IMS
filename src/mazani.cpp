@@ -27,7 +27,6 @@ void Mazani::Behavior()
           if(Input < 2)
           {
                Release(first);
-               std::cerr<<"Mazani potřebuje 2 korpusy"<<std::endl;
                return;
           }
           Wait(Uniform(3,7));
@@ -44,7 +43,6 @@ void Mazani::Behavior()
           if(Input < 2)
           {
                Release(second);
-               std::cerr<<"Mazani potřebuje 2 korpusy"<<std::endl;
                return;
           }
           Wait(Uniform(3,7));
@@ -54,7 +52,6 @@ void Mazani::Behavior()
           Sumtime += t;
           Release(second);
      }
-     std::cout<<"Oplatek namazaný"<<std::endl;
      tmp->Input++;
      tmp->Activate();
 }

@@ -8,7 +8,8 @@ Stat Vlhceni::FstatMala("Mala vlhcirna");
 Stat Vlhceni::FstatVelka("Velka vlhcirna");
 int Vlhceni::SumtimeMala = 0;
 int Vlhceni::SumtimeVelka = 0;
-
+bool Vlhceni::IsTimeSaved = false;
+int Vlhceni::SavedTime = 0;
 
 Vlhceni::Vlhceni(/* args */)
 {
@@ -26,7 +27,6 @@ void Vlhceni::Behavior()
      {
           if(Vlhceni::Input>=VELKA_KAPACITA)
           {
-               std::cout<<"##velká špina"<<Input<<"  "<<Output<<std::endl;
                Seize(Velka);
                t = Time;
                Vlhceni::Input-=VELKA_KAPACITA;
@@ -39,6 +39,11 @@ void Vlhceni::Behavior()
                t = Time-t;
                FstatVelka(t);
                SumtimeVelka += t;
+               if(!IsTimeSaved)
+               {
+                    SavedTime = Time;
+                    IsTimeSaved = true;
+               }
                Release(Velka);
           }
      }
@@ -49,7 +54,6 @@ void Vlhceni::Behavior()
                //std::cout<<"##Input"<<Input<<std::endl;
                if(Vlhceni::Input>=MALA_KAPACITA)
                {
-                    std::cout<<"##malá špina"<<std::endl;
                     Seize(Mala);
                     t = Time;
                     Vlhceni::Input-=MALA_KAPACITA;
@@ -62,6 +66,11 @@ void Vlhceni::Behavior()
                     t = Time-t;
                     FstatMala(t);
                     SumtimeMala += t;
+                    if(!IsTimeSaved)
+                    {
+                         SavedTime = Time;
+                         IsTimeSaved = true;
+                    }
                     Release(Mala);
                }
           }

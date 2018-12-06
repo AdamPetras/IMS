@@ -19,14 +19,12 @@ void Sypani::Behavior(){
      double t = Time;
      if (Vlhceni::Output < 2){
           Release(F);
-          std::cerr << "Nedostatocna kapacita pre sypani: " << Vlhceni::Output << std::endl;
           IsRunning = false;
           return;
      }
      Vlhceni::Output -= 2;
      Wait(Uniform(4, 15));
      Spekani::Input++;
-     std::cout << ">>>>>> Sypani hotovo" << std::endl;
      t = Time - t;
      Fstat(t);
      Sumtime += t;
