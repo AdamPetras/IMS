@@ -1,6 +1,7 @@
 #include "mazani.h"
 int Mazani::Input = 0;
-int Mazani::Sumtime = 0;
+int Mazani::Sumtime1 = 0;
+int Mazani::Sumtime2 = 0;
 Stat Mazani::Fstat1("První mazač");
 Stat Mazani::Fstat2("Druhý mazač");
 Histogram Mazani::Fhist("Mazani", 0, 60*60*24, 14);
@@ -31,11 +32,11 @@ void Mazani::Behavior()
                return;
           }
           Fhist(Time);
-          Wait(Uniform(3,7));
+          Wait(Uniform(5,10));
           Input-=2;
           t = Time-t;
           Fstat1(t);
-          Sumtime += t;
+          Sumtime1 += t;
           Release(first);
      }
      else if(d>=50)
@@ -48,11 +49,11 @@ void Mazani::Behavior()
                return;
           }
           Fhist(Time);
-          Wait(Uniform(3,7));
+          Wait(Uniform(5,10));
           Input-=2;
           t = Time-t;
           Fstat2(t);
-          Sumtime += t;
+          Sumtime2 += t;
           Release(second);
      }
      tmp->Input++;

@@ -16,7 +16,7 @@ Spekani::~Spekani()
 
 void Spekani::Behavior()
 {
-     const int PLOTYNKY = 8;
+     const int PLOTYNKY = 6;
      Seize(F);
      if(Spekani::Input < 2){
           Release(F);

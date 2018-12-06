@@ -13,7 +13,8 @@ class Mazani:public Process
           static Stat Fstat1;
           static Stat Fstat2;
           static Histogram Fhist;
-          static int Sumtime;
+          static int Sumtime1;
+          static int Sumtime2;
           static int Input;
           Mazani(/* args */);
           ~Mazani();

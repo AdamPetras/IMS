@@ -95,7 +95,8 @@ int main(int argc, char **argv)
      std::cout << "Spekani:\t" << Spekani::Sumtime / Time * 100 << "\%" << std::endl;
      std::cout << "AutoSpekani:\t" << AutoSpekani::Sumtime / Time * 100 << "\%" << std::endl;
      std::cout << "Orezavani:\t" << Orezavani::Sumtime / Time * 100 << "\%" << std::endl;
-     std::cout << "Mazání:\t\t" << Mazani::Sumtime / Time * 100 << "\%" << std::endl;
+     std::cout << "Mazání1:\t" << Mazani::Sumtime1 / Time * 100 << "\%" << std::endl;
+     std::cout << "Mazání2:\t" << Mazani::Sumtime2 / Time * 100 << "\%" << std::endl;
      std::cout << "Malá vlhčírna:\t" << Vlhceni::SumtimeMala / Time * 100 << "\%" << std::endl;
      std::cout << "Velká vlhčírna:\t" << Vlhceni::SumtimeVelka / Time * 100 << "\%" << std::endl;
      std::cout << "Baleni:\t\t" << Baleni::Sumtime / Time * 100 << "\%" << std::endl;
