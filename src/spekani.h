@@ -9,6 +9,7 @@ class Spekani : public Process
      static Facility F;
      static int Input;
      static Stat Fstat;
+     static Histogram Fhist;
      static double Sumtime;
      Spekani(/* args */);
      ~Spekani();

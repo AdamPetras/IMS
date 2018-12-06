@@ -10,6 +10,7 @@ class Baleni : public Process
      static int Input;
      static Facility F;
      static Stat Fstat;
+     static Histogram Fhist;
      static double Sumtime;
      Baleni(/* args */);
      ~Baleni();

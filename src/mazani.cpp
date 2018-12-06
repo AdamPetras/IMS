@@ -3,6 +3,7 @@ int Mazani::Input = 0;
 int Mazani::Sumtime = 0;
 Stat Mazani::Fstat1("První mazač");
 Stat Mazani::Fstat2("Druhý mazač");
+Histogram Mazani::Fhist("Mazani", 0, 60*60*24, 14);
 Facility Mazani::first("Prvni mazač");
 Facility Mazani::second("Druhy mazač");
 Mazani::Mazani(/* args */)
@@ -29,6 +30,7 @@ void Mazani::Behavior()
                Release(first);
                return;
           }
+          Fhist(Time);
           Wait(Uniform(3,7));
           Input-=2;
           t = Time-t;
@@ -45,6 +47,7 @@ void Mazani::Behavior()
                Release(second);
                return;
           }
+          Fhist(Time);
           Wait(Uniform(3,7));
           Input-=2;
           t = Time-t;

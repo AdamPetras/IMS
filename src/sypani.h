@@ -9,6 +9,7 @@ class Sypani : public Process
      static bool IsRunning;
      static Facility F;
      static Stat Fstat;
+     static Histogram Fhist;
      static double Sumtime;
      Sypani(/* args */);
      ~Sypani();

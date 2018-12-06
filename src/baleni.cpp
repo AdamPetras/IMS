@@ -3,6 +3,7 @@
 int Baleni::Input = 0;
 Facility Baleni::F("Baleni");
 Stat Baleni::Fstat("Baleni");
+Histogram Baleni::Fhist("Baleni", 0, 60*60*24, 14);
 double Baleni::Sumtime = 0;
 
 Baleni::Baleni(/* args */)
@@ -20,6 +21,7 @@ void Baleni::Behavior(){
           Release(F);
           return;
      }
+     Fhist(Time);
      Wait(Uniform(7, 13));
      Input--;
      t = Time - t;
