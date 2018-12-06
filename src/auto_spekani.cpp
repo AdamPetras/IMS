@@ -3,6 +3,7 @@
 Facility AutoSpekani::F("Auto_spekani");
 Stat AutoSpekani::Fstat("Auto_spekani");
 double AutoSpekani::Sumtime = 0;
+bool AutoSpekani::IsRunning = false;
 
 AutoSpekani::AutoSpekani(/* args */)
 {
@@ -16,9 +17,11 @@ AutoSpekani::~AutoSpekani()
 void AutoSpekani::Behavior()
 {
      Seize(F);
+     IsRunning = true;
      if (Vlhceni::Output < 2){
           Release(F);
           std::cerr << "Nedostatocna kapacita pre auto_spekani" << std::endl;
+          IsRunning = false;
           return;
      }
      double t = Time;

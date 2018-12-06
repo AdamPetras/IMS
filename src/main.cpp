@@ -46,7 +46,7 @@ int main(int argc,char**argv)
     //std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
      Print("Výroba lázeňských oplatků\n");
      SetOutput("model.out");
-     const int ENDTIME = 6048000;
+     const int ENDTIME = 2*604800;
      Init(0,ENDTIME); // experiment initialization for time 0..1000 
      (new Peceni())->Activate(); // customer generator 
      Run(); // simulation 
@@ -70,5 +70,6 @@ int main(int argc,char**argv)
      std::cout<<"Velká vlhčírna:\t"<<Vlhceni::SumtimeVelka/Time*100<<"\%"<<std::endl;
      std::cout<<"Baleni:\t\t"<<Baleni::Sumtime/Time*100<<"\%"<<std::endl;
      std::cout<<"Vazeni:\t\t"<<Vazeni::Sumtime/Time*100<<"\%"<<std::endl;
+     std::cout<<"ostatok syp:\t\t"<<Vlhceni::Output<<std::endl;
      return EXIT_SUCCESS;
 }

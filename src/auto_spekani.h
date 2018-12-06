@@ -13,6 +13,7 @@ class AutoSpekani : public Process
      static Facility F;
      static Stat Fstat;
      static double Sumtime;
+     static bool IsRunning;
      AutoSpekani(/* args */);
      ~AutoSpekani();
      void Behavior();
