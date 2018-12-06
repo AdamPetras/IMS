@@ -1,6 +1,7 @@
 #pragma once
 #include <simlib.h>
 #include "vazeni.h"
+#include "globals.h"
 
 class Spekani : public Process
 {

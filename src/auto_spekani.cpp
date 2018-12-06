@@ -2,7 +2,7 @@
 
 Facility AutoSpekani::F("Auto_spekani");
 Stat AutoSpekani::Fstat("Auto_spekani");
-Histogram AutoSpekani::Fhist("Auto_spekani", 0, 60*60*24, 14);
+Histogram AutoSpekani::Fhist("Auto_spekani", 0, 60*60*24, Globals::TTL/(60*60*24));
 double AutoSpekani::Sumtime = 0;
 bool AutoSpekani::IsRunning = false;
 

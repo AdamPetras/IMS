@@ -3,6 +3,7 @@
 #include "vazeni.h"
 #include "vazeni.h"
 #include "vlhceni.h"
+#include "globals.h"
 
 class AutoSpekani : public Process
 {

@@ -2,6 +2,7 @@
 #include <simlib.h>
 #include "spekani.h"
 #include "vlhceni.h"
+#include "globals.h"
 
 class Sypani : public Process
 {

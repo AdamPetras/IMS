@@ -7,16 +7,22 @@
 #include "orezavani.h"
 #include "sypani.h"
 #include "auto_spekani.h"
-
+#include "globals.h"
+#include <math.h> 
 void printStat(const Histogram *hist, const Stat *stat)
 {
      std::cout << ">>>> " << hist->Name() << " <<<<" << std::endl;
      for (unsigned i = 0; i < hist->Count(); i++)
      {
-          double s = (*hist)[i] * stat->MeanValue() / hist->Step() * 100;
+       double s = 0;
+        if(stat->Number()!=0)
+        {
+          s = (*hist)[i+1] * stat->MeanValue() / hist->Step() * 100;
+        }
           if (s > 100.0)
                s = 100.0;
-          printf("%d.den\t%.2f%%\n", i + 1, s);
+          printf("%d.den\t%.2f%%\n", i+1, s);
+      
      }
      std::cout << "##############" << std::endl;
 }
@@ -25,21 +31,21 @@ int main(int argc, char **argv)
 {
      (void)argc;
      (void)argv;
-     /*int links = 0;
-     int process = 0;
-     float generateTime = 0;
+     Globals::TTL = 604800.0;
      int opt;
      bool help = false;
-     while ((opt = getopt(argc, argv, "l:i:t:h")) != -1) {
+     int tmp = 0;
+     while ((opt = getopt(argc, argv, "t:h")) != -1) {
           switch (opt) {
-          case 'l':
-                    links = atoi(optarg);
-               break;
-          case 'i':
-                    process = atoi(optarg);
-               break;
           case 't':
-                    generateTime = atof(optarg);
+                    Globals::TTL = atof(optarg);
+                    tmp = ceil(Globals::TTL/(60*60*24));
+                    if(tmp==0)
+                      tmp = 1;
+                    Baleni::Fhist.Init(0, 60*60*24,tmp);
+                    AutoSpekani::Fhist.Init(0, 60*60*24,tmp);
+                    Sypani::Fhist.Init(0, 60*60*24, tmp);
+                    Spekani::Fhist.Init(0, 60*60*24, tmp);
                break;
           case 'h':
                     help = true;
@@ -56,19 +62,22 @@ int main(int argc, char **argv)
                     \n\t-i : počet procesů\
                     \n\t-t : čas, kdy se budou vytvářet jednotlivé procesy"<<std::endl;
                return EXIT_SUCCESS;
-     }*/
+     }
      //std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
      Print("Výroba lázeňských oplatků\n");
      SetOutput("model.out");
-     const int ENDTIME = 2 * 604800;
-     Init(0, ENDTIME);           // experiment initialization for time 0..1000
+     Init(0, Globals::TTL);           // experiment initialization for time 0..1000
      (new Peceni())->Activate(); // customer generator
      Run();                      // simulation
 
      printStat(&Sypani::Fhist, &Sypani::Fstat);
+     std::cout << "#### " << "Počet oplatků které čekají "<<Vlhceni::Output << " ####" <<std::endl;
      printStat(&Spekani::Fhist, &Spekani::Fstat);
+     std::cout << "#### " << "Počet oplatků které čekají "<<Spekani::Input << " ####" <<std::endl;
      printStat(&AutoSpekani::Fhist, &AutoSpekani::Fstat);
+     std::cout << "#### " << "Počet oplatků které čekají "<<Vlhceni::Output << " ####" <<std::endl;
      printStat(&Baleni::Fhist, &Baleni::Fstat);
+     std::cout << "#### " << "Počet krabic které byly vytvořeny "<<Baleni::Output << " ####" <<std::endl;
 
      Sypani::Fstat.Output();
      Sypani::Fhist.Output();
@@ -84,7 +93,7 @@ int main(int argc, char **argv)
      Vazeni::Fstat.Output();
      Baleni::Fstat.Output();
      Baleni::Fhist.Output();
-     std::cout << "#### " << "Prumner" << " ####" << std::endl;
+     std::cout << "#### " << "Průměr" << " ####" << std::endl;
      std::cout << "Sypani:\t\t" << Sypani::Sumtime / Time * 100 << "\%" << std::endl;
      std::cout << "Spekani:\t" << Spekani::Sumtime / Time * 100 << "\%" << std::endl;
      std::cout << "AutoSpekani:\t" << AutoSpekani::Sumtime / Time * 100 << "\%" << std::endl;

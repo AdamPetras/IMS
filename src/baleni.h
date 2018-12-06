@@ -1,6 +1,7 @@
 #pragma once
 #include <simlib.h>
 #include <iostream>
+#include "globals.h"
 
 class Baleni : public Process
 {
@@ -8,6 +9,7 @@ class Baleni : public Process
      /* data */
    public:
      static int Input;
+     static int Output;
      static Facility F;
      static Stat Fstat;
      static Histogram Fhist;

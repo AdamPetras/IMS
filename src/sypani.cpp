@@ -2,7 +2,7 @@
 
 Facility Sypani::F("Sypani");
 Stat Sypani::Fstat("Sypani");
-Histogram Sypani::Fhist("Sypani", 0, 60*60*24, 14);
+Histogram Sypani::Fhist("Sypani", 0, 60*60*24, Globals::TTL/(60*60*24));
 double Sypani::Sumtime = 0;
 bool Sypani::IsRunning = false;
 
