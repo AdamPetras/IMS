@@ -30,7 +30,7 @@ void Vlhceni::Behavior()
                Seize(Velka);
                t = Time;
                Vlhceni::Input-=VELKA_KAPACITA;
-               Wait(Uniform(1*24*60*60,2*24*60*60));
+               Wait(Uniform(1*24*60*60,1.5*24*60*60));
                Vlhceni::Output+=VELKA_KAPACITA;
                if(!AutoSpekani::IsRunning)
                     (new AutoSpekani)->Activate();
@@ -57,7 +57,7 @@ void Vlhceni::Behavior()
                     Seize(Mala);
                     t = Time;
                     Vlhceni::Input-=MALA_KAPACITA;
-                    Wait(Uniform(1*24*60*60,2*24*60*60));
+                    Wait(Uniform(1*24*60*60,1.5*24*60*60));
                     Vlhceni::Output+=MALA_KAPACITA;
                          if(!AutoSpekani::IsRunning)
                     (new AutoSpekani)->Activate();

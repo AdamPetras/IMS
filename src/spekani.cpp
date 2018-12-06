@@ -16,6 +16,7 @@ Spekani::~Spekani()
 
 void Spekani::Behavior()
 {
+     const int PLOTYNKY = 8;
      Seize(F);
      if(Spekani::Input < 2){
           Release(F);
@@ -23,7 +24,7 @@ void Spekani::Behavior()
      }
      Fhist(Time);
      double t = Time;
-     Wait(45/3); // 14 plotynek
+     Wait(45/PLOTYNKY);
      Spekani::Input -= 2;
      Vazeni::InputSpekani += 1;
      t = Time - t;

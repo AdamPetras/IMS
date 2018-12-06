@@ -31,21 +31,20 @@ int main(int argc, char **argv)
 {
      (void)argc;
      (void)argv;
-     Globals::TTL = 604800.0;
      int opt;
      bool help = false;
-     int tmp = 0;
+     int days = 0;
      while ((opt = getopt(argc, argv, "t:h")) != -1) {
           switch (opt) {
           case 't':
-                    Globals::TTL = atof(optarg);
-                    tmp = ceil(Globals::TTL/(60*60*24));
-                    if(tmp==0)
-                      tmp = 1;
-                    Baleni::Fhist.Init(0, 60*60*24,tmp);
-                    AutoSpekani::Fhist.Init(0, 60*60*24,tmp);
-                    Sypani::Fhist.Init(0, 60*60*24, tmp);
-                    Spekani::Fhist.Init(0, 60*60*24, tmp);
+                    days = atoi(optarg);
+                    Globals::TTL = days*60*60*24;
+                    if(days==0)
+                      days = 1;
+                    Baleni::Fhist.Init(0, 60*60*24,days);
+                    AutoSpekani::Fhist.Init(0, 60*60*24,days);
+                    Sypani::Fhist.Init(0, 60*60*24, days);
+                    Spekani::Fhist.Init(0, 60*60*24, days);
                break;
           case 'h':
                     help = true;
@@ -57,13 +56,11 @@ int main(int argc, char **argv)
      }
      if(help)
      {
-          std::cout<<"ims [-l links] [-i process] [-t generateTime]\
-                    \n\t-l : počet obslužných linek, které jsou v systému\
-                    \n\t-i : počet procesů\
-                    \n\t-t : čas, kdy se budou vytvářet jednotlivé procesy"<<std::endl;
+          std::cout<<"ims [-t TTL] [-h]\
+                    \n\t-h : help\
+                    \n\t-t : dny, po které bude simulace běžet"<<std::endl;
                return EXIT_SUCCESS;
      }
-     //std::cout<<"Links: "<<links<<"\nProcess: "<<process<<"\nGenerateTime: "<<generateTime<<std::endl;
      Print("Výroba lázeňských oplatků\n");
      SetOutput("model.out");
      Init(0, Globals::TTL);           // experiment initialization for time 0..1000
@@ -71,13 +68,13 @@ int main(int argc, char **argv)
      Run();                      // simulation
 
      printStat(&Sypani::Fhist, &Sypani::Fstat);
-     std::cout << "#### " << "Počet oplatků které čekají "<<Vlhceni::Output << " ####" <<std::endl;
+     std::cout << "#### " << "Vlhčírna output "<<Vlhceni::Output << " ####" <<std::endl;
      printStat(&Spekani::Fhist, &Spekani::Fstat);
-     std::cout << "#### " << "Počet oplatků které čekají "<<Spekani::Input << " ####" <<std::endl;
+     std::cout << "#### " << "Spekani input "<<Spekani::Input << " ####" <<std::endl;
      printStat(&AutoSpekani::Fhist, &AutoSpekani::Fstat);
-     std::cout << "#### " << "Počet oplatků které čekají "<<Vlhceni::Output << " ####" <<std::endl;
+     std::cout << "#### " << "Vlhčírna output "<<Vlhceni::Output << " ####" <<std::endl;
      printStat(&Baleni::Fhist, &Baleni::Fstat);
-     std::cout << "#### " << "Počet krabic které byly vytvořeny "<<Baleni::Output << " ####" <<std::endl;
+     std::cout << "#### " << "Balení output "<<Baleni::Output << " ####" <<std::endl;
 
      Sypani::Fstat.Output();
      Sypani::Fhist.Output();

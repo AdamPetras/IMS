@@ -25,7 +25,7 @@ void Sypani::Behavior(){
      }
      Fhist(Time);
      Vlhceni::Output -= 2;
-     Wait(Uniform(4, 15));
+     Wait(Uniform(4, 8));
      Spekani::Input++;
      t = Time - t;
      Fstat(t);
