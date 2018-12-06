@@ -6,6 +6,7 @@
 class Sypani : public Process
 {
      public:
+     static bool IsRunning;
      static Facility F;
      static Stat Fstat;
      static double Sumtime;
