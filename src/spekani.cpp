@@ -17,10 +17,15 @@ Spekani::~Spekani()
 void Spekani::Behavior()
 {
      Seize(F);
+     if(Spekani::Input < 2){
+          Release(F);
+          return;
+     }
      Fhist(Time);
      double t = Time;
-     Wait(45);
-     Vazeni::InputSpekani++;
+     Wait(45/3); // 14 plotynek
+     Spekani::Input -= 2;
+     Vazeni::InputSpekani += 1;
      t = Time - t;
      Fstat(t);
      Sumtime += t;

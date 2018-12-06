@@ -17,7 +17,7 @@ AutoSpekani::~AutoSpekani()
 
 void AutoSpekani::Behavior()
 {
-     const int PLOTYNKY = 14;
+     const int PLOTYNKY = 3;
      Seize(F);
      IsRunning = true;
      if (Vlhceni::Output < 2){

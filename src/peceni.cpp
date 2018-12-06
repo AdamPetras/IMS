@@ -18,13 +18,13 @@
                Vlhceni *tmp = new Vlhceni;
                Vlhceni::Input++;
                tmp->Activate();
-               Activate(Time+3);
+               Activate(Time+2);
           }
           else if(d>=70)
           {
                Mazani *tmp = new Mazani();
                Mazani::Input++;
                tmp->Activate();
-               Activate(Time+3);
+               Activate(Time+2);
           }
      }

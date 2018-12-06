@@ -7,8 +7,8 @@ class Vlhceni:public Process
 private:
      static Facility Velka;
      static Facility Mala;
-     const int MALA_KAPACITA = 20800;
-     const int VELKA_KAPACITA = 26900;
+     const int MALA_KAPACITA = 26900;
+     const int VELKA_KAPACITA = 40800;
      static bool IsTimeSaved;
 public:
      static int SavedTime;

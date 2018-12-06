@@ -5,14 +5,13 @@
 
 class Spekani : public Process
 {
-   private:
-   public:
-     static Facility F;
-     static int Input;
-     static Stat Fstat;
-     static Histogram Fhist;
-     static double Sumtime;
-     Spekani(/* args */);
-     ~Spekani();
-     void Behavior();
+public:
+  static Facility F;
+  static int Input;
+  static Stat Fstat;
+  static Histogram Fhist;
+  static double Sumtime;
+  Spekani(/* args */);
+  ~Spekani();
+  void Behavior();
 };
